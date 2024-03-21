@@ -16,7 +16,7 @@ const LiveChat = () => {
     useEffect(() => {
         const i = setInterval(() => {
             //API polling
-            console.log('api polling')
+            // console.log('api polling')
             dispatch(addMessage(
                 {
                     name: generateRandomName(),
@@ -24,7 +24,7 @@ const LiveChat = () => {
                 }
             ))
             setLiveMessages("")
-        }, 1500)
+        }, 2000)
         return () => {
             clearInterval(i);
         }
@@ -33,7 +33,7 @@ const LiveChat = () => {
     return (
         <>
             <div className='w-full'>
-                <div className='border mb-2 border-black rounded-sm h-[400px] bg-slate-100 p-2 w-full overflow-auto flex flex-col-reverse'>
+                <div className='border mb-2 border-black rounded-lg h-[400px] bg-slate-100 p-2 w-full overflow-auto flex flex-col-reverse'>
                     {chatMessages.map((message, index) => < ChatMessage key={index} name={message.name} message={message.message} />)}
                 </div>
                 <form className='w-full' onSubmit={(e) => {
